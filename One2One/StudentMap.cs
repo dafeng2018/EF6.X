@@ -17,6 +17,6 @@ namespace One2One
             //HasOptional(x => x.Contact).WithOptionalPrincipal(x => x.Student);
             //Contacts.ID/Students.ID自增,Students.Contact_ID 不可为空，是Contacts.ID外键
             HasOptional(x => x.Contact).WithOptionalDependent(x => x.Student);
-        }
+         }
     }
 }
