@@ -11,26 +11,27 @@ namespace _02_05
     {
         public EmployeeConfiguration()
         {
-            Map(m =>
-            {
-                m.Properties(p => new
-                {
-                    p.EmployeeId,
-                    p.Name,
-                    p.CreateTime,
-                    p.ModifiedTime
-                });
-                m.ToTable("Employees");
-            }).Map(m =>
-            {
-                m.Properties(p => new
-                {
-                    p.PhoneNumber,
-                    p.Address
-                });
-                m.ToTable("EmployeeDetails");
-            });
+            //Map(m =>
+            //{
+            //    m.Properties(p => new
+            //    {
+            //        p.EmployeeId,
+            //        p.Name,
+            //        p.CreateTime,
+            //        p.ModifiedTime
+            //    });
+            //    m.ToTable("Employees");
+            //}).Map(m =>
+            //{
+            //    m.Properties(p => new
+            //    {
+            //        p.PhoneNumber,
+            //        p.Address
+            //    });
+            //    m.ToTable("EmployeeDetails");
+            //});
             ToTable("Employees");
+            HasKey(p => p.EmployeeId);
 
             HasRequired(p => p.Photo).WithRequiredPrincipal(p => p.Employee);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace _02_05
 {
@@ -43,27 +44,28 @@ namespace _02_05
             //}
             #endregion
             #region EntitySplitting
-            using (var db = new EFDbContext())
-            {
-                db.Database.Log = Console.Write;
-                var employee = new Employee()
-                {
-                    CreateTime = DateTime.Now,
-                    ModifiedTime = DateTime.Now,
-                    Name = "Feng",
-                    PhoneNumber = "12300000",
-                    Address = "Address"
+            //using (var db = new EFDbContext())
+            //{
+            //    db.Database.Log = Console.Write;
+            //    var employee = new Employee()
+            //    {
+            //        CreateTime = DateTime.Now,
+            //        ModifiedTime = DateTime.Now,
+            //        Name = "Feng",
+            //        PhoneNumber = "12300000",
+            //        Address = "Address"
 
-                };
-                db.Employees.Add(employee);
-                db.SaveChanges();
-            }
+            //    };
+            //    db.Employees.Add(employee);
+            //    db.SaveChanges();
+            //}
             #endregion
             #region TableSpiltting
             using (var db = new EFDbContext())
             {
                 db.Database.Log = Console.Write;
-                var employee = db.Employees.ToList();
+                //var employee = db.Employees.ToList();
+                var employee = db.Employees.Include(d => d.Photo).ToList();
             }
             #endregion
         }

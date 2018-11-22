@@ -20,23 +20,23 @@ namespace One2Many
                     Email = "Jack@EF.com",
                     CreatedTime = DateTime.Now,
                     ModifiedTime = DateTime.Now
-                    //,
-                    //Orders = new List<Order> {
-                    //        new Order()
-                    //        {
-                    //            Quantity =12,
-                    //            Price = 100,
-                    //            CreatedTime = DateTime.Now,
-                    //            ModifiedTime = DateTime.Now
-                    //        },
-                    //        new Order()
-                    //        {
-                    //            Quantity =120,
-                    //            Price = 120,
-                    //            CreatedTime = DateTime.Now,
-                    //            ModifiedTime = DateTime.Now
-                    //        },
-                    //    }
+                    ,
+                    Orders = new List<Order> {
+                            new Order()
+                            {
+                                Quantity =12,
+                                Price = 100,
+                                CreatedTime = DateTime.Now,
+                                ModifiedTime = DateTime.Now
+                            },
+                            new Order()
+                            {
+                                Quantity =120,
+                                Price = 120,
+                                CreatedTime = DateTime.Now,
+                                ModifiedTime = DateTime.Now
+                            },
+                        }
                 };
                 db.Customers.Add(customer);
                 db.SaveChanges();
