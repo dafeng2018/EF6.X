@@ -78,16 +78,22 @@ namespace _03_01
             using (var db = new EFDbContext())
             {
                 db.Database.Log = Console.Write;
-                for (int i = 0; i < 100; i++)
+                //for (int i = 0; i < 100; i++)
+                //{
+                //    Customer customer = new Customer()
+                //    {
+                //        Name = "Jacky " + i,
+                //        Email = "Jack " + i + "@EF.com",
+                //    };
+                //    db.Customers.Add(customer);
+                //}
+                //db.SaveChanges();
+                var page = db.Customers.Where(c=>c.Id>10).OrderByDescending(d=>d.Id).Take(10).Skip(3).ToList();
+                foreach (var item in page)
                 {
-                    Customer customer = new Customer()
-                    {
-                        Name = "Jacky " + i,
-                        Email = "Jack " + i + "@EF.com",
-                    };
-                    db.Customers.Add(customer);
+                    Console.WriteLine(item.Id +" "+item.Name);
                 }
-                db.SaveChanges();
+
             }
             #endregion
         }
