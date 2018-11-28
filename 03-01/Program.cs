@@ -54,14 +54,15 @@ namespace _03_01
             //}
             #endregion
             #region Unchanged-2
-            //using (var db = new EFDbContext())
-            //{
-            //    var c = TestState();
-            //    Console.WriteLine(db.Entry(c).State);
-            //    db.Customers.Attach(c);
-            //    //调用Attach方法变成了Unchanged状态。Unchanged状态会被SaveChanges方法忽略掉，不会有任何sql发送到数据库。
-            //    db.SaveChanges();
-            //}
+            using (var db = new EFDbContext())
+            {
+                var c = TestState();
+                Console.WriteLine(db.Entry(c).State);
+                db.Customers.Attach(c);
+                //调用Attach方法变成了Unchanged状态。Unchanged状态会被SaveChanges方法忽略掉，不会有任何sql发送到数据库。
+                Console.WriteLine(db.Entry(c).State);
+                db.SaveChanges();
+            }
             #endregion
             #region Modified-1
             //using (var db = new EFDbContext())
@@ -75,20 +76,20 @@ namespace _03_01
             //}
             #endregion
             #region Page
-            using (var db = new EFDbContext())
-            {
-                db.Database.Log = Console.Write;
-                for (int i = 0; i < 100; i++)
-                {
-                    Customer customer = new Customer()
-                    {
-                        Name = "Jacky " + i,
-                        Email = "Jack " + i + "@EF.com",
-                    };
-                    db.Customers.Add(customer);
-                }
-                db.SaveChanges();
-            }
+            //using (var db = new EFDbContext())
+            //{
+            //    db.Database.Log = Console.Write;
+            //    for (int i = 0; i < 100; i++)
+            //    {
+            //        Customer customer = new Customer()
+            //        {
+            //            Name = "Jacky " + i,
+            //            Email = "Jack " + i + "@EF.com",
+            //        };
+            //        db.Customers.Add(customer);
+            //    }
+            //    db.SaveChanges();
+            //}
             #endregion
         }
         static Customer TestState()
