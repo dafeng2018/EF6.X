@@ -76,20 +76,20 @@ namespace _03_01
             //}
             #endregion
             #region Page
-            //using (var db = new EFDbContext())
-            //{
-            //    db.Database.Log = Console.Write;
-            //    for (int i = 0; i < 100; i++)
-            //    {
-            //        Customer customer = new Customer()
-            //        {
-            //            Name = "Jacky " + i,
-            //            Email = "Jack " + i + "@EF.com",
-            //        };
-            //        db.Customers.Add(customer);
-            //    }
-            //    db.SaveChanges();
-            //}
+            using (var db = new EFDbContext())
+            {
+                db.Database.Log = Console.Write;
+                for (int i = 0; i < 100; i++)
+                {
+                    Customer customer = new Customer()
+                    {
+                        Name = "Jacky " + i,
+                        Email = "Jack " + i + "@EF.com",
+                    };
+                    db.Customers.Add(customer);
+                }
+                db.SaveChanges();
+            }
             #endregion
         }
         static Customer TestState()
