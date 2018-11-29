@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using Z.EntityFramework.Plus;
 
 namespace _03_02
 {
@@ -127,10 +128,130 @@ namespace _03_02
             //    db.Database.ExecuteSqlCommand(sql, parameters);
             //}
             #endregion
+            #region Update - 上下文只能存在主键等于1的一个对象，AsNoTracking 取消跟踪
+            //using (EFDbContext db = new EFDbContext())
+            //{
+            //    //db.Database.Log = Console.Write;
+            //    var customer = GetCustomer();
+            //    var dbCustomer = db.Customers.AsNoTracking().Where(p => p.Id == customer.Id).FirstOrDefault();
+            //    if (dbCustomer != null)
+            //    {
+            //        db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+            //        if (db.SaveChanges() > 0)
+            //        {
+            //            Console.WriteLine("-done-");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("-fail-");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("dbCustomer is null");
+            //    }
+            //}
+            #endregion
+            #region Update - 更新部分属性
+            //using (EFDbContext db = new EFDbContext())
+            //{
+            //    //db.Database.Log = Console.Write;
+            //    var customer = GetCustomer2();
+            //    #region 更新部分属性1
+            //    //var dbCustomer = db.Customers.Where(p => p.Id == customer.Id).FirstOrDefault();
+            //    //if (dbCustomer != null)
+            //    //{
+            //    //    dbCustomer.Email = customer.Email;
+            //    //    dbCustomer.ModifiedTime = DateTime.Now;
+            //    //    dbCustomer.Name = customer.Name;
+            //    //    if (db.SaveChanges() > 0)
+            //    //    {
+            //    //        Console.WriteLine("-done-");
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        Console.WriteLine("-fail-");
+            //    //    }
+            //    //}
+            //    //else
+            //    //{
+            //    //    Console.WriteLine("dbCustomer is null");
+            //    //}
+            //    #endregion
+
+
+            //    #region 更新部分属性2
+            //    //db.Customers.Attach(customer);
+            //    //db.Entry(customer).Property(p => p.Email).IsModified = true;
+            //    //db.Entry(customer).Property(p => p.ModifiedTime).IsModified = true;
+            //    //db.Entry(customer).Property(p => p.Name).IsModified = true;
+            //    //if (db.SaveChanges() > 0)
+            //    //{
+            //    //    Console.WriteLine("-done-");
+            //    //}
+            //    //else
+            //    //{
+            //    //    Console.WriteLine("-fail-");
+            //    //}
+            //    #endregion
+            //    #region 更新全部属性
+            //    customer = GetCustomer();
+            //    var dbCustomer = db.Customers.Where(p => p.Id == customer.Id).FirstOrDefault();
+            //    if (dbCustomer != null)
+            //    {
+            //        db.Entry(dbCustomer).CurrentValues.SetValues(customer);
+            //        if (db.SaveChanges() > 0)
+            //        {
+            //            Console.WriteLine("-done-");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("-fail-");
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("dbCustomer is null");
+            //    }
+            //}
+            #endregion
+            #region 批量更新EntityFramework-Plus
+            using (EFDbContext db = new EFDbContext())
+            {
+                db.Database.Log = Console.Write;
+                var customer = db.Customers.Where(d => d.Email.Contains("@")).Update(d => new Customer() { Email = "EntityFramework-Plus@EntityFramework-Plus.com" });
+                db.SaveChanges();
+            }
+
+
+            #endregion
 
 
         }
-
+        static Customer GetCustomer()
+        {
+            var customer = new Customer()
+            {
+                Id = 1,
+                CreatedTime = DateTime.Now,
+                ModifiedTime = DateTime.Now,
+                Email = "Update - EMail",
+                Name = " - Update - "
+            };
+            return customer;
+        }
+        static Customer GetCustomer2()
+        {
+            var customer = new Customer()
+            {
+                Id = 1,
+                ModifiedTime = DateTime.Now,
+                Email = "Update - EMail",
+                Name = " - Update - "
+            };
+            return customer;
+        }
 
     }
 }
