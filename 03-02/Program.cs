@@ -217,16 +217,16 @@ namespace _03_02
             //}
             #endregion
             #region 批量更新EntityFramework-Plus
-            using (EFDbContext db = new EFDbContext())
-            {
-                db.Database.Log = Console.Write;
-                var customer = db.Customers.Where(d => d.Email.Contains("@")).Update(d => new Customer() { Email = "EntityFramework-Plus@EntityFramework-Plus.com" });
-                db.SaveChanges();
-            }
-
+            //using (EFDbContext db = new EFDbContext())
+            //{
+            //    db.Database.Log = Console.Write;
+            //    var customer = db.Customers.Where(d => d.Email.Contains("@")).Update(d => new Customer() { Email = "EntityFramework-Plus@EntityFramework-Plus.com" });
+            //    db.SaveChanges();
+            //}
+            #endregion
+            #region MyRegion
 
             #endregion
-
 
         }
         static Customer GetCustomer()

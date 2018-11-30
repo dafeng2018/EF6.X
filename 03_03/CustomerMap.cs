@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 
-namespace _03_02
+namespace _03_03
 {
     internal class CustomerMap : EntityTypeConfiguration<Customer>
     {
@@ -10,8 +10,7 @@ namespace _03_02
             Property(t => t.Name).HasColumnType("VARCHAR").HasMaxLength(50).IsRequired();
             Property(t => t.Email).HasColumnType("VARCHAR").HasMaxLength(50).IsRequired();
             //HasMany(t => t.Orders).WithRequired(t => t.Customer).HasForeignKey(t => t.CustomerId).WillCascadeOnDelete();
-            HasMany(t => t.Orders).WithRequired(t => t.Customer).WillCascadeOnDelete();
-            MapToStoredProcedures();
+            HasMany(t => t.Orders).WithRequired(t => t.Customer).HasForeignKey(t => t.CustomerId).WillCascadeOnDelete();
         }
     }
 }
