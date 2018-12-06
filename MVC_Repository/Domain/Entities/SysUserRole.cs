@@ -16,7 +16,7 @@ namespace MVC_Repository.Domain.Entities
         [ForeignKey("SysRole")]
         public int SysRoleID { get; set; }
         public virtual SysRole SysRole { get; set; }
-        public virtual SysUser SysUser { get; set; }
+        public virtual SysUserInfo SysUser { get; set; }
         public DateTime ModifiedDate { get; set; }
 
     }

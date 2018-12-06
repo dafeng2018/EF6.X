@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVC_Repository.Domain.Entities
 {
-    public class SysUser
+    public class SysUserInfo
     {
         public int Id { get; set; }
         [StringLength(50)]

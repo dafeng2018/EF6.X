@@ -9,27 +9,27 @@ namespace MVC_Repository.Domain.Concrete
     {
         protected override void Seed(EFDbContext context)
         {
-            var users = new List<SysUser>()
+            var users = new List<SysUserInfo>()
             {
-                new SysUser()
+                new SysUserInfo()
                 {
-                    Id = 1,
+                    //Id = 1,
                     Name="Admin",
                     Password="123456",
                     ModifiedDate = DateTime.Now,
                     Email="Alice@qq.com"
                 },
-                new SysUser()
+                new SysUserInfo()
                 {
-                    Id = 2,
+                    //Id = 2,
                     Name="Alice",
                     Password="123456",
                        ModifiedDate = DateTime.Now,
                  Email="Alice@qq.com"
                 },
-                new SysUser()
+                new SysUserInfo()
                 {
-                       Id = 3,
+                       //Id = 3,
                     Name="Ben",
                     Password="123456",
                           ModifiedDate = DateTime.Now,
@@ -40,14 +40,14 @@ namespace MVC_Repository.Domain.Concrete
             {
                 new SysRole()
                 {
-                    Id =1,
+                    //Id =1,
                     Name="Administrator",
                         ModifiedDate = DateTime.Now,
                 Description="Administrator have full authorization to perform Sys administration."
                 },
                 new SysRole()
                 {
-                    Id = 2,
+                    //Id = 2,
                     Name="General User",
                       ModifiedDate = DateTime.Now,
                   Description="General User can access the data they are authorized for."
@@ -80,7 +80,7 @@ namespace MVC_Repository.Domain.Concrete
                  SysRoleID = 1
                 },
             };
-            context.SysUsers.AddRange(users);
+            context.SysUserInfos.AddRange(users);
             context.SysRoles.AddRange(roles);
             context.SaveChanges();
         }

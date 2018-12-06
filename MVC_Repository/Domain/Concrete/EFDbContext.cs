@@ -11,7 +11,7 @@ namespace MVC_Repository.Domain.Concrete
             //Configuration.LazyLoadingEnabled = false;
         }
         public DbSet<SysRole> SysRoles { get; set; }
-        public DbSet<SysUser> SysUsers { get; set; }
+        public DbSet<SysUserInfo> SysUserInfos { get; set; }
         public DbSet<SysUserRole> SysUserRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
