@@ -1,0 +1,50 @@
+﻿@model MVC_Repository.Domain.Entities.SysUserInfo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationMessage("All", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(d => d.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(d => d.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(d => d.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(d => d.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(d => d.CName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(d => d.CName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.CName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(d => d.Description, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(d => d.Description, 10, 40, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="修改" class="btn btn-success" />
+            </div>
+        </div>
+
+    </div>
+}

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-
 namespace MVC_Repository.Domain.Concrete
 {
     internal class EFDbInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
@@ -16,6 +15,7 @@ namespace MVC_Repository.Domain.Concrete
                     //Id = 1,
                     Name="Admin",
                     Password="123456",
+                    CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
                     Email="Alice@qq.com"
                 },
@@ -24,7 +24,8 @@ namespace MVC_Repository.Domain.Concrete
                     //Id = 2,
                     Name="Alice",
                     Password="123456",
-                       ModifiedDate = DateTime.Now,
+                        CreatedDate = DateTime.Now,
+                   ModifiedDate = DateTime.Now,
                  Email="Alice@qq.com"
                 },
                 new SysUserInfo()
@@ -32,7 +33,8 @@ namespace MVC_Repository.Domain.Concrete
                        //Id = 3,
                     Name="Ben",
                     Password="123456",
-                          ModifiedDate = DateTime.Now,
+                       CreatedDate = DateTime.Now,
+                       ModifiedDate = DateTime.Now,
               Email="Ben@qq.com"
                 }
             };
