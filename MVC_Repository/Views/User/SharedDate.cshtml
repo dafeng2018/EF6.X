@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "SharedDate";
+}
+
+<h2>SharedDate</h2>
+
+@ViewBag.DateTime
+<hr />
+
+@@Html.Partial - @Html.Partial("_partialviewdate")
+<hr />
+@@Html.Action - @Html.Action("PartialViewDate")

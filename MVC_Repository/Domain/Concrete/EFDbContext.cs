@@ -7,9 +7,11 @@ namespace MVC_Repository.Domain.Concrete
     {
         public EFDbContext() : base("name=DefaultConnection")
         {
-            Database.SetInitializer<EFDbContext>(new EFDbInitializer());
+            //Database.SetInitializer<EFDbContext>(new EFDbInitializer());
+            Database.SetInitializer<EFDbContext>(null);
             //Configuration.LazyLoadingEnabled = false;
         }
+        public DbSet<Test> Tests { get; set; }
         public DbSet<SysRole> SysRoles { get; set; }
         public DbSet<SysUserInfo> SysUserInfos { get; set; }
         public DbSet<SysUserRole> SysUserRoles { get; set; }

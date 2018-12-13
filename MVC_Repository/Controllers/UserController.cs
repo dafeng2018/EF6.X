@@ -1,6 +1,7 @@
 ﻿using MVC_Repository.Domain.Entities;
 using MVC_Repository.Domain.Repositories;
 using MVC_Repository.Domain.UnitOfWork;
+using MVC_Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,30 @@ namespace MVC_Repository.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var users = unitOfWork.SysUserInfoRepository.Get(filter: q => q.Name.Contains("b"), orderby: q => q.OrderByDescending(u => u.Name));
-            return View(users);
+            int pageSize = 1;
+
+            var users = unitOfWork.SysUserInfoRepository.Get(orderby: q => q.OrderByDescending(u => u.Name));
+            UsersListViewModel model = new UsersListViewModel
+            {
+                SysUserInfos = users.Skip((page - 1) * pageSize).Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemPerPage = pageSize,
+                    TotalItems = users.Count()
+
+                }
+            };
+            return View(model);
+            //return View(users);
         }
         public ActionResult Edit(int id)
         {
             var user = unitOfWork.SysUserInfoRepository.GetByID(id);
 
-            return View(user);
+            return View();
         }
         [HttpPost]
         public ActionResult Edit(SysUserInfo user)
@@ -48,6 +63,17 @@ namespace MVC_Repository.Controllers
 
             }
             return View();
+        }
+        public ActionResult SharedDate()
+        {
+            ViewBag.DateTime = DateTime.Now;
+            return View();
+        }
+        [ChildActionOnly]
+        public ActionResult PartialViewDate()
+        {
+            ViewBag.DateTime = DateTime.Now.AddMinutes(10);
+            return View("_partialviewdate");
         }
     }
 }
