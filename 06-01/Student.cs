@@ -9,5 +9,6 @@ namespace _06_01
         public DateTime ModifiedTime { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
+        public string T { get; set; }
     }
 }

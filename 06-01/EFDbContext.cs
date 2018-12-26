@@ -13,6 +13,7 @@ namespace _06_01
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Student>().Property(p => p.Name).IsConcurrencyToken();
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Configurations.Add(new OrderMap());
             //modelBuilder.Configurations.Add(new CustomerMap());
