@@ -1,4 +1,5 @@
 ﻿using EF.Core;
+using EF.Data.Configuration;
 using EF.Data.Conventions;
 using System;
 using System.Collections.Generic;

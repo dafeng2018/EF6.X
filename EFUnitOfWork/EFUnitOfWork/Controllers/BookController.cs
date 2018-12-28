@@ -1,6 +1,11 @@
-﻿using EF.Core.Data;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using EF.Core.Data;
+using EF.Core.Exceptions;
 using EF.Core.Helper;
 using EF.Data;
+using EFUnitOfWork.Models;
+using EFUnitOfWork.UploadUtil;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -238,5 +243,4 @@ namespace EFUnitOfWork.Controllers
             base.Dispose(disposing);
         }
     }
-}
 }

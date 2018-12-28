@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\EFDbConfiguration.cs" />
     <Compile Include="Conventions\DateConvention.cs" />
     <Compile Include="EFDbContext.cs" />
     <Compile Include="IUnitOfWork.cs" />
