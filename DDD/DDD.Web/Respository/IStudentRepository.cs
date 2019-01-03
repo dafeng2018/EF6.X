@@ -9,7 +9,6 @@ namespace DDD.Web.Respository
 {
     public interface IStudentRepository : IRepository<Student>
     {
-        IQueryable<Student> GetByName(string name);
-
+        Student GetByName(string name);
     }
 }

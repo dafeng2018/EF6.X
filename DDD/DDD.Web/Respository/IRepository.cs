@@ -9,8 +9,12 @@ namespace DDD.Web.Respository
 {
     public interface IRepository<TAggregateRoot> where TAggregateRoot : BaseEntity
     {
-        IQueryable<TAggregateRoot> Get(int id);
+        void Add(TAggregateRoot aggregateRoot);
 
-        IQueryable<TAggregateRoot> GetAll();
+        void Update(TAggregateRoot aggregateRoot);
+
+        void Delete(TAggregateRoot aggregateRoot);
+
+        TAggregateRoot Get(int id);
     }
 }

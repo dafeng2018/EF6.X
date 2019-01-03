@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
+
 namespace EF.Data.Configuration
 {
     [DbConfigurationType(typeof(EFDbConfiguration))]

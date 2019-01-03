@@ -5,7 +5,7 @@ namespace DDD.Web.Application
 {
     public interface IStudentService
     {
-        IQueryable<Student> Get(int id);
+        Student Get(int id);
 
         bool Add(string name);
     }

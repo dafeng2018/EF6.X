@@ -14,5 +14,6 @@ namespace EF.Data
         IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : BaseEntity;
         int SaveChanges();
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Core
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public Int64 ID { get; set; }
         public DateTime CreatedTime { get; set; }

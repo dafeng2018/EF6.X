@@ -20,17 +20,18 @@ namespace DDD.Web.Application
             _studentRepository = studentRepository;
         }
 
-        public IQueryable<Student> Get(int id)
-        {
-            return _studentRepository.Get(id);
-        }
 
         public bool Add(string name)
         {
             var student = new Student { Name = name };
 
-            _unitOfWork.RegisterNew(student);
+            _studentRepository.Add(student);
             return _unitOfWork.Commit();
+        }
+
+        public Student Get(int id)
+        {
+            return _studentRepository.Get(id);
         }
     }
 }
