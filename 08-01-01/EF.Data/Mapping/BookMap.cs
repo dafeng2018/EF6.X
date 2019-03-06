@@ -25,7 +25,7 @@ namespace EF.Data.Mapping
             Property(t => t.Author).IsRequired().HasMaxLength(200);
             Property(t => t.ISBN).IsRequired().HasMaxLength(200);
             Property(t => t.Published).IsRequired();
-            Property(t => t.Url).IsRequired();
+            Property(t => t.Url).IsRequired().HasMaxLength(200);
         }
 
     }
