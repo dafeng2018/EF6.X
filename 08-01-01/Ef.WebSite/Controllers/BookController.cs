@@ -22,6 +22,7 @@ namespace Ef.WebSite.Controllers
         }
         // GET: Book
         public ActionResult Index()
+
         {
             var books = bookRepository.Table.ProjectTo<BookDTO>().ToList();
             return View(books);
