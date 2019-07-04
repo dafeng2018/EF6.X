@@ -8,6 +8,7 @@ namespace EF.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
+
         private IDbContext context;
         public UnitOfWork(IDbContext context)
         {
@@ -18,7 +19,6 @@ namespace EF.Data
         {
             context.SaveChanges();
         }
-
 
         public void Rollback()
         {

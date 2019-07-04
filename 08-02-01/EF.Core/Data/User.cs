@@ -12,6 +12,5 @@ namespace EF.Core.Data
         public string Email { get; set; }
         public string Password { get; set; }
         public virtual UserProfile UserProfile { get; set; }
-        public string IP { get; set; }
     }
 }

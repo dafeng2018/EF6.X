@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using EF.DI.Mappings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,11 @@ namespace EF.DI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //初始化AutoMapper映射配置
+            Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperProfile>());
+
+
         }
     }
 }
